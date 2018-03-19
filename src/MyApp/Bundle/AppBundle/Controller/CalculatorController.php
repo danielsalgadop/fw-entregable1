@@ -19,7 +19,6 @@ class CalculatorController extends Controller
     var $calc = null;
     var $validator = null;
     var $request = null;
-    # public function __construct($param1=0,$param2=0)  # asi no llegan los parametros. Debe ser que symfony instancia esto sin los valores que llegan en la request
     public function __construct()
     {
         $this->calc = new Calculator;
@@ -33,7 +32,6 @@ class CalculatorController extends Controller
             return $this->invalidParams();
         }
         return new Response((int)$this->calc->add($param1,$param2));
-        // return new Response(new HttpException(406,"parametros no validos"));
     }
 
     public function substractAction()
@@ -65,7 +63,6 @@ class CalculatorController extends Controller
             return $this->render('default/error_406.html.twig', [
                 'message' => "divide by 0",
             ]);
-            // return new Response(new HttpException(406,"divide by 0"));
         }
         if(! $this->validator->areNumbers(func_get_args())){
             return $this->invalidParams();
