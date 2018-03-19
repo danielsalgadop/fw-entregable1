@@ -1,0 +1,62 @@
+#app:
+#    resource: "@AppBundle/Controller/"
+#    type:     annotation
+
+#homepage:
+#  path: /
+#  defaults: { _controller: AppBundle:Default:index }
+#
+#constraint:
+#  path: /{param}/
+#  defaults: { _controller: AppBundle:Default:paramConstraint }
+#  requirements:
+#    param: '\d+'
+#
+#param_homepage:
+#  path: /{param}/
+#  defaults: { _controller: AppBundle:Default:param }
+
+request_querystring:
+  path: /querystring/
+  defaults: { _controller: AppBundle:Default:requestQuerystring }
+
+request_post:
+  path: /post/
+  defaults: { _controller: AppBundle:Default:requestPost }
+  methods: [POST]
+
+# Get and params regex
+calculator_add:
+  path: /add/{param1}/{param2}/
+  defaults: { _controller: AppBundle:Calculator:add }
+  methods: [GET]
+  requirements:
+    param1: '-*\d+'
+    param2: '-*\d+'
+
+# Post params All validations done in Controller
+calculator_substract:
+  path: /substract/
+  defaults: { _controller: AppBundle:Calculator:substract }
+  methods: [POST]
+
+
+# param1via URI param2 via querystring
+calculator_times:
+  path: /times/{param1}/
+  defaults: { _controller: AppBundle:Calculator:times }
+  methods: [GET]
+  requirements:
+    param1: '-*\d+'
+
+# using anotation routes
+calculator_divide:
+  resource: "@AppBundle/Controller/CalculatorController.php"
+  type: annotation
+
+# if any of above works, this will
+cath-all:
+  path: /{req}
+  defaults: { _controller: 'AppBundle:Calculator:error' }
+  requirements:
+      req: ".+"
