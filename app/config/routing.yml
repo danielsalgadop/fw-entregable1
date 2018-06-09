@@ -45,7 +45,7 @@ calculator_substract:
 calculator_times:
   path: /times/{param1}/
   defaults: { _controller: AppBundle:Calculator:times }
-  methods: [GET]
+  methods: [POST,GET]
   requirements:
     param1: '-*\d+'
 

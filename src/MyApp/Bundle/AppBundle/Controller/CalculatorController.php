@@ -44,9 +44,10 @@ class CalculatorController extends Controller
         return new Response((int)$this->calc->substract($param1,$param2));
     }
 
-    public function timesAction($param1,$param2)
+    public function timesAction($param1)
     {
-        $param2 = $this->request->query->get('param2');
+        $param2 = $this->findParam2();
+
         if(! $this->validator->areNumbers([$param1,$param2])){
             return $this->invalidParams();
         }
@@ -78,5 +79,14 @@ class CalculatorController extends Controller
 
     public function errorAction(){
         return $this->invalidParams();
+    }
+
+    private function findParam2(){
+      if($this->request->request->get('param2')){
+          return $this->request->request->get('param2');
+      }
+      elseif ($this->request->query->get('param2')){
+          return $this->request->query->get('param2');
+      }
     }
 }
