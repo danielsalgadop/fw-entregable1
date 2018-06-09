@@ -2,22 +2,24 @@
 
 namespace MyApp\Component\Calculator;
 
-
 class Calculator
 {
+    public $validator = null;
 
-    var $validator = null;
-
-    function add(int $v1, int $v2): int {
+    public function add(int $v1, int $v2): int
+    {
         return $v1 + $v2;
     }
-    function substract(int $v1, int $v2): int {
-            return $v1 - $v2;
+    public function substract(int $v1, int $v2): int
+    {
+        return $v1 - $v2;
     }
-    function times(int $v1, int $v2): int {
+    public function times(int $v1, int $v2): int
+    {
         return $v1 * $v2;
     }
-    function divide(int $v1, int $v2): int {
+    public function divide(int $v1, int $v2): int
+    {
         return $v1 / $v2;
     }
 }
