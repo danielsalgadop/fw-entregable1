@@ -75,7 +75,7 @@ class CalculatorController extends Controller
         ]);
     }
 
-    public function errorAction(): Response
+    private function errorAction(): Response
     {
         return $this->invalidParams();
     }

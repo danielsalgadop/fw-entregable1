@@ -11,7 +11,7 @@ class Validator
      *
      * @return     boolean
      */
-    public function areNumbers(array $arr_param)
+    public function areNumbers(array $arr_param): bool
     {
         foreach ($arr_param as $value) {
             if ($value == 0) {
