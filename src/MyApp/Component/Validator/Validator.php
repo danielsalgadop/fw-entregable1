@@ -11,9 +11,10 @@ class Validator
      *
      * @return     boolean
      */
-    public function areNumbers(array $arr_param){
+    public function areNumbers(array $arr_param)
+    {
         foreach ($arr_param as $value) {
-            if($value == 0) {
+            if ($value == 0) {
                 continue;
             }
             if (! filter_var($value, FILTER_VALIDATE_INT)) {

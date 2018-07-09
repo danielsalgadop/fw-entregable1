@@ -39,12 +39,13 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function requestQuerystringAction(Request $request) {
+    public function requestQuerystringAction(Request $request)
+    {
         return new Response($request->query->get('id'));
     }
 
-    public function requestPostAction(Request $request) {
+    public function requestPostAction(Request $request)
+    {
         return new Response($request->request->get('id'));
     }
-
 }
